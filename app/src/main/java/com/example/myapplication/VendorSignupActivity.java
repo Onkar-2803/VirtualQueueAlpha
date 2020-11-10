@@ -6,23 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class SettingsActivity extends AppCompatActivity {
+public class VendorSignupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_vendor_signup);
     }
-    public void ChangeInfo(View view)
+    public void Signup(View view)
     {
-        Intent intent = new Intent(this, EditInfoActivity.class);
+        Intent intent = new Intent(this, AfterLoginActivity.class);
         startActivity(intent);
-    }
-
-    public void SaveAndExit(View view)
-    {
-
         this.finish();
     }
-
 }

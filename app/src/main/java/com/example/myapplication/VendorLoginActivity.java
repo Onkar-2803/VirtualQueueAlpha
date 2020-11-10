@@ -6,22 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class VendorLoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_vendor_login);
     }
-    public void Vendor(View view)
+    public void Login(View view)
     {
-        Intent intent = new Intent(this, VendorLoginActivity.class);
+        Intent intent = new Intent(this, AfterLoginActivity.class);
         startActivity(intent);
     }
-    public void Customer(View view)
+    public void Signup(View view)
     {
-        Intent intent = new Intent(this, CustomerLoginActivity.class);
+        Intent intent = new Intent(this, VendorSignupActivity.class);
         startActivity(intent);
     }
-
 }

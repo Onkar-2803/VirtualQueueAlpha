@@ -6,22 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class ShopListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_shop_list);
     }
-    public void Vendor(View view)
+    public void selectShop(View view)
     {
-        Intent intent = new Intent(this, VendorLoginActivity.class);
+        Intent intent = new Intent(this, CustomerGetInLineActivity.class);
         startActivity(intent);
     }
-    public void Customer(View view)
+    public void Back(View view)
     {
-        Intent intent = new Intent(this, CustomerLoginActivity.class);
-        startActivity(intent);
+        this.finish();
     }
-
 }

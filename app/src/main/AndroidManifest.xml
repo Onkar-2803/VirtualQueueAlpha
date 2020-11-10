@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".EditInfoActivity"></activity>
+        <activity android:name=".CustomerLoginActivity"></activity>
+        <activity android:name=".VendorLoginActivity" />
+        <activity android:name=".CustomerGetInLineActivity" />
+        <activity android:name=".ShopListActivity" />
+        <activity android:name=".CustomerSignupActivity" />
+        <activity android:name=".EditInfoActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".LineActivity" />
         <activity android:name=".CurrentLineActivity" />
         <activity android:name=".AfterLoginActivity" />
-        <activity android:name=".SignupActivity" />
+        <activity android:name=".VendorSignupActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

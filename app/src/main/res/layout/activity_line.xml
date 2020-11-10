@@ -7,6 +7,7 @@
     tools:context=".LineActivity">
 
     <ListView
+        android:id="@+id/listViewLine"
         android:layout_width="332dp"
         android:layout_height="440dp"
         android:layout_marginStart="24dp"
