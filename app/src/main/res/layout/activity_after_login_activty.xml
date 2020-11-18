@@ -36,7 +36,7 @@
         android:layout_margin="30dp"
         android:onClick="Settings"
 
-        android:text="Settings"
+        android:text="DataSample"
         app:backgroundTint="@color/colorPrimary" />
 
     <Button

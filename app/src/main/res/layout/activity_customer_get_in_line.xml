@@ -17,7 +17,7 @@
 
             android:layout_marginLeft="40dp"
             android:padding="20dp"
-            android:text="Current Coupon Number" />
+            android:text="Your Coupon Number" />
 
         <TextView
             android:id="@+id/textViewCurrentCouponNumber"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:padding="20dp"
-            android:text="Your OTP Number" />
+            android:text="Current Participants" />
 
         <TextView
             android:id="@+id/textViewCustomerOTP"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:layout_marginLeft="80dp"
-            android:text="9713" />
+            android:text="13" />
 
     </LinearLayout>
 
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:text="Current Line"
+        android:text="Current Line On going "
          />
 
     <Button
