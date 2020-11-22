@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1062537906430",
+    "firebase_url": "https://virtualqueue-36bea.firebaseio.com",
+    "project_id": "virtualqueue-36bea",
+    "storage_bucket": "virtualqueue-36bea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062537906430:android:9eef6c27d72c7416493daf",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062537906430-1dof0604padfs5ktu0nil4gbcc9ls734.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVsmNbz3vP404mjAGBo57eeu4FVVUhtuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062537906430-1dof0604padfs5ktu0nil4gbcc9ls734.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

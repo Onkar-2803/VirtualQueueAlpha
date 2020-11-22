@@ -15,7 +15,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
     }
     public void Login(View view)
     {
-        Intent intent = new Intent(this, ShopListActivity.class);
+        Intent intent = new Intent(this, ShopCategories.class);
         startActivity(intent);
     }
     public void Signup(View view)
