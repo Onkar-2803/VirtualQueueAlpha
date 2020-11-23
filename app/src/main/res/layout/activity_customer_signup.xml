@@ -28,6 +28,14 @@
             android:layout_margin="40dp"
             android:hint="Phone"
             android:inputType="phone" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="email"
+        android:ems="10"
+        android:layout_margin="40dp"/>
 
         <EditText
             android:id="@+id/editTextEditPassword"
@@ -41,13 +49,13 @@
             android:inputType="textPassword" />
 
 
+
     <Button
-        android:id="@+id/buttonSaveEdit"
+        android:id="@+id/buttonregister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:onClick="Signup"
         android:text="Register"
         app:backgroundTint="@color/colorPrimary" />
 

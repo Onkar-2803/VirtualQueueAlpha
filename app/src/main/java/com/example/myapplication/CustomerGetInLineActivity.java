@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class CustomerGetInLineActivity extends AppCompatActivity {
         TextView t1,t2;
-        Button b1,b2;
+        Button b1,b2,b3;
 
         int countof_participants;
 
@@ -25,6 +25,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         t2=findViewById(R.id.currentparticipaipants);
         b1=findViewById(R.id.buttonGetInLine);
         b2=findViewById(R.id.mapsgoogle);
+       // b3=findViewById(R.id.)
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 
