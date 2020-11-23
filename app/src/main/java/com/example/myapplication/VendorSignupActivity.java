@@ -40,10 +40,11 @@ public class VendorSignupActivity extends AppCompatActivity {
         register=findViewById(R.id.button_xml);
         fAuth=FirebaseAuth.getInstance();
 
-        if(fAuth.getCurrentUser()!=null){
+       /* if(fAuth.getCurrentUser()!=null){
             startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
             finish();
         }
+        */
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

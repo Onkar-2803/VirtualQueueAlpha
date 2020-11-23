@@ -50,7 +50,7 @@ public class CustomerVerifyPhoneNumber extends AppCompatActivity {
 
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber("+919075031199")       // Phone number to verify
+                        .setPhoneNumber("+919763254022")       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(this)                 // Activity (for callback binding)
                         .setCallbacks(mCallbacks)// OnVerificationStateChangedCallbacks
