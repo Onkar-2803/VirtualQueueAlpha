@@ -63,7 +63,6 @@ public class CustomerVerifyPhoneNumber extends AppCompatActivity {
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
-
             verficationCodeBySystem=s;
         }
 

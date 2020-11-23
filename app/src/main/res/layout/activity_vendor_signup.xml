@@ -9,59 +9,58 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
 
 
         <EditText
-            android:id="@+id/editTextEditName"
+            android:id="@+id/email_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="Name"
+            android:hint="Email"
 
-            android:inputType="textPersonName" />
+            android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editTextEditShopName"
+            android:id="@+id/shop_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:ems="10"
             android:hint="Shop Name"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextEditAddress"
+            android:id="@+id/address_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
             android:ems="10"
             android:hint="Address"
             android:inputType="textMultiLine" />
 
         <EditText
-            android:id="@+id/editTextEditPostal"
+            android:id="@+id/Code_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:ems="10"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
             android:hint="Postal Code"
             android:inputType="textPostalAddress" />
 
         <EditText
-            android:id="@+id/editTextEditPhone"
+            android:id="@+id/phone_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
             android:ems="10"
 
@@ -69,18 +68,23 @@
             android:inputType="phone" />
 
         <EditText
-            android:id="@+id/editTextEditPassword"
+            android:id="@+id/password_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
             android:ems="10"
-            android:layout_margin="30dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
             android:hint="Password"
             android:inputType="textPassword" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/progress_circular"/>
 
     <Button
-        android:id="@+id/buttonSaveEdit"
+        android:id="@+id/button_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"

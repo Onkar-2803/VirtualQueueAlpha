@@ -49,4 +49,10 @@
 
         android:text="Exit"
         app:backgroundTint="@color/colorPrimary" />
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Logout"
+        android:onClick="logout"/>
 </LinearLayout>
