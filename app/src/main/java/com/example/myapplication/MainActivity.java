@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         fAuth=FirebaseAuth.getInstance();
         if(fAuth.getCurrentUser()!=null)
         {
-            finish();
             startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
+            finish();
         }
     }
     public void Vendor(View view)
