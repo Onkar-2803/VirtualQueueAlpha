@@ -34,11 +34,6 @@ public class CustomerLoginActivity extends AppCompatActivity {
         mbutton=findViewById(R.id.customer_login);
         fAuth=FirebaseAuth.getInstance();
 
-        if(fAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),ShopListActivity.class));
-            finish();
-        }
-
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

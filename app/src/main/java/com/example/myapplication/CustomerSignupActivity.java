@@ -67,7 +67,6 @@ public class CustomerSignupActivity extends AppCompatActivity {
 
                 UserHelperClass userHelperClass=new UserHelperClass(Name,Phone,email,password,address);
 
-
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
