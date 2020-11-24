@@ -30,6 +30,11 @@ public class VendorLoginActivity extends AppCompatActivity {
         mLogin=findViewById(R.id.buttonLogin1);
         fAuth=FirebaseAuth.getInstance();
 
+        if(fAuth.getCurrentUser()!=null){
+            startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
+            finish();
+        }
+
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,12 +16,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CustomerLoginActivity extends AppCompatActivity {
     EditText memail,mpassword;
     Button mbutton;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +34,17 @@ public class CustomerLoginActivity extends AppCompatActivity {
         mbutton=findViewById(R.id.customer_login);
         fAuth=FirebaseAuth.getInstance();
 
+        if(fAuth.getCurrentUser()!=null){
+            startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
+            finish();
+        }
+
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 String email=memail.getText().toString().trim();
                 String password=mpassword.getText().toString().trim();
                 if(TextUtils.isEmpty(email)){
