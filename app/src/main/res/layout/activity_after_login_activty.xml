@@ -7,15 +7,7 @@
     android:orientation="vertical"
     tools:context=".AfterLoginActivity">
 
-    <Button
-        android:id="@+id/buttonPrevLine"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:onClick="PreviousLine"
-        android:text="Previous Line"
-        app:backgroundTint="@color/colorPrimary" />
+
 
     <Button
         android:id="@+id/buttonCurrentLine"
@@ -28,16 +20,7 @@
         android:text="Current Line"
         app:backgroundTint="@color/colorPrimary" />
 
-    <Button
-        android:id="@+id/buttonSettings"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:onClick="Settings"
 
-        android:text="DataSample"
-        app:backgroundTint="@color/colorPrimary" />
 
     <Button
         android:id="@+id/buttonExit"

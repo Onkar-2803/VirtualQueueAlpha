@@ -66,12 +66,13 @@ public class CustomerSignupActivity extends AppCompatActivity {
                 }
 
                 UserHelperClass userHelperClass=new UserHelperClass(Name,Phone,email,password,address);
-                reference.child(Phone).setValue(userHelperClass);
+
 
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            reference.child(fAuth.getUid()).setValue(userHelperClass);
                             Toast.makeText(CustomerSignupActivity.this,"User Created",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),ShopListActivity.class));
                         }

@@ -10,20 +10,29 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fAuth=FirebaseAuth.getInstance();
+        if(fAuth.getCurrentUser()!=null){
+            startActivity(new Intent(getApplicationContext(),ShopListActivity.class));
+            finish();
+        }
+
 
     }
     public void Vendor(View view)
     {
+
+
         Intent intent = new Intent(this, VendorLoginActivity.class);
         startActivity(intent);
     }
     public void Customer(View view)
     {
+
         Intent intent = new Intent(this, CustomerLoginActivity.class);
         startActivity(intent);
     }
