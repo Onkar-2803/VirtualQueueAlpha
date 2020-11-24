@@ -16,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fAuth=FirebaseAuth.getInstance();
-        if(fAuth.getCurrentUser()!=null){
+        if(fAuth.getCurrentUser().getUid().contains("postalcode")){
+            startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
+            finish();
+        }
+        else  if(fAuth.getCurrentUser().getUid().contains("name")){
             startActivity(new Intent(getApplicationContext(),ShopListActivity.class));
             finish();
         }

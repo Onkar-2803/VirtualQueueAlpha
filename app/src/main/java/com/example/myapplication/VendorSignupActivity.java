@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -24,6 +26,10 @@ public class VendorSignupActivity extends AppCompatActivity {
     Button register;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+
+
+    FirebaseDatabase rootnode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +46,14 @@ public class VendorSignupActivity extends AppCompatActivity {
         register=findViewById(R.id.button_xml);
         fAuth=FirebaseAuth.getInstance();
 
-       if(fAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
-            finish();
-        }
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                rootnode= FirebaseDatabase.getInstance();
+                reference=rootnode.getReference("Vendor");
+
+
                 String e_email=email.getText().toString().trim();
                 String p_password=password.getText().toString().trim();
                 if(TextUtils.isEmpty(e_email)){
@@ -58,6 +64,14 @@ public class VendorSignupActivity extends AppCompatActivity {
                     password.setError("Password is Required");
                     return;
                 }
+                String eemail=email.getText().toString().trim();
+                String sshopname=shopname.getText().toString().trim();
+                String aadress=address.getText().toString().trim();
+                String ppostalcode=postalcode.getText().toString().trim();
+                String pphone=phone.getText().toString().trim();
+                String ppasword=password.getText().toString().trim();
+
+                VendorHelperClass vendorHelperClass=new VendorHelperClass(eemail,sshopname,aadress,ppostalcode,pphone,ppasword);
 
                // progressBar.setVisibility(View.VISIBLE);
 
@@ -65,6 +79,7 @@ public class VendorSignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                reference.child(fAuth.getUid()).setValue(vendorHelperClass);
                                 Toast.makeText(VendorSignupActivity.this,"User Created",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
                             }
