@@ -1,18 +1,19 @@
 package com.example.myapplication;
 
 public class VendorHelperClass {
-    String email,shopname,address,postalcode,phone,password;
+    String email,shopname,address,postalcode,phone,password,category;
 
     public VendorHelperClass() {
     }
 
-    public VendorHelperClass(String email, String shopname, String address, String postalcode, String phone, String password) {
+    public VendorHelperClass(String email, String shopname, String address, String postalcode, String phone, String password,String category) {
         this.email = email;
         this.shopname = shopname;
         this.address = address;
         this.postalcode = postalcode;
         this.phone = phone;
         this.password = password;
+        this.category=category;
     }
 
     public String getEmail() {

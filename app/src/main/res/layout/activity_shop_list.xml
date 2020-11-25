@@ -21,8 +21,7 @@
         android:layout_width="294dp"
         android:layout_height="369dp"
         android:layout_gravity="center"
-        android:padding="5dp"
-      />
+        android:padding="5dp" />
 
     <Button
         android:id="@+id/buttonSelectShop"

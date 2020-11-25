@@ -19,22 +19,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 public class VendorSignupActivity extends AppCompatActivity {
-    EditText email,shopname,address,postalcode,phone,password;
+    EditText email,shopname,address,postalcode,phone,password,category;
     Button register;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
 
 
     FirebaseDatabase rootnode;
-    DatabaseReference reference;
+    DatabaseReference VendorReference, ShopReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_signup);
+
+        category=findViewById(R.id.category_xml);
         email=findViewById(R.id.email_xml);
         shopname=findViewById(R.id.shop_xml);
         address=findViewById(R.id.address_xml);
@@ -51,7 +51,9 @@ public class VendorSignupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 rootnode= FirebaseDatabase.getInstance();
-                reference=rootnode.getReference("Vendor");
+                VendorReference =rootnode.getReference("Vendor");
+
+                ShopReference =rootnode.getReference("Shops");
 
 
                 String e_email=email.getText().toString().trim();
@@ -70,8 +72,10 @@ public class VendorSignupActivity extends AppCompatActivity {
                 String ppostalcode=postalcode.getText().toString().trim();
                 String pphone=phone.getText().toString().trim();
                 String ppasword=password.getText().toString().trim();
+                String ccategory=category.getText().toString().trim();
 
-                VendorHelperClass vendorHelperClass=new VendorHelperClass(eemail,sshopname,aadress,ppostalcode,pphone,ppasword);
+                VendorHelperClass vendorHelperClass=new VendorHelperClass(eemail,sshopname,aadress,ppostalcode,pphone,ppasword,ccategory);
+                Shophelperclass shophelperclass=new Shophelperclass(sshopname,aadress,ppostalcode);
 
                // progressBar.setVisibility(View.VISIBLE);
 
@@ -79,7 +83,10 @@ public class VendorSignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                reference.child(fAuth.getUid()).setValue(vendorHelperClass);
+                                VendorReference.child(fAuth.getUid()).setValue(vendorHelperClass);
+
+                                ShopReference.child(ccategory).setValue(shophelperclass);
+
                                 Toast.makeText(VendorSignupActivity.this,"User Created",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
                             }
