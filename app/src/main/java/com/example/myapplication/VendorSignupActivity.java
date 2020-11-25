@@ -72,11 +72,10 @@ public class VendorSignupActivity extends AppCompatActivity {
                 String ppostalcode=postalcode.getText().toString().trim();
                 String pphone=phone.getText().toString().trim();
                 String ppasword=password.getText().toString().trim();
-                String ccategory=category.getText().toString().trim();
+                String ccategory=category.getText().toString().toLowerCase().trim();
 
                 VendorHelperClass vendorHelperClass=new VendorHelperClass(eemail,sshopname,aadress,ppostalcode,pphone,ppasword,ccategory);
                 Shophelperclass shophelperclass=new Shophelperclass(sshopname,aadress,ppostalcode);
-
                // progressBar.setVisibility(View.VISIBLE);
 
                 fAuth.createUserWithEmailAndPassword(e_email,p_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -85,7 +84,7 @@ public class VendorSignupActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 VendorReference.child(fAuth.getUid()).setValue(vendorHelperClass);
 
-                                ShopReference.child(ccategory).setValue(shophelperclass);
+                                ShopReference.child(ccategory).child(sshopname).setValue(shophelperclass);
 
                                 Toast.makeText(VendorSignupActivity.this,"User Created",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(),AfterLoginActivity.class));
