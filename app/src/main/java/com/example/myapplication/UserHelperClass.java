@@ -54,4 +54,5 @@ public class UserHelperClass {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }

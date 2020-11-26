@@ -21,7 +21,8 @@ public class ShopCategories extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ShopCategories.this,ShopListActivity.class);
+                Intent intent=new Intent(ShopCategories.this,CustomerGetInLineActivity.class);
+                intent.putExtra("category","Grocery");
                 startActivity(intent);
             }
         });
@@ -29,15 +30,18 @@ public class ShopCategories extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ShopCategories.this,ShopListActivity.class);
+                Intent intent=new Intent(ShopCategories.this,CustomerGetInLineActivity.class);
+                intent.putExtra("category","Barber");
                 startActivity(intent);
+
             }
         });
 
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ShopCategories.this,ShopListActivity.class);
+                Intent intent=new Intent(ShopCategories.this,CustomerGetInLineActivity.class);
+                intent.putExtra("category","Pharma");
                 startActivity(intent);
             }
         });

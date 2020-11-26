@@ -76,13 +76,12 @@
 
     <Button
         android:id="@+id/buttonGetInLine"
-        android:layout_height="wrap_content"
         android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
 
-        android:text="Get In Line"
-        />
+        android:text="Get In Line" />
 
     <Button
         android:id="@+id/buttonBack"

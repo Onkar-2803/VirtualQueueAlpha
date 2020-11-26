@@ -22,7 +22,7 @@ public class ShopListActivity extends AppCompatActivity {
     }
     public void selectShop(View view)
     {
-        Intent intent = new Intent(this, CustomerGetInLineActivity.class);
+        Intent intent = new Intent(this, ShopCategories.class);
         startActivity(intent);
     }
     public void Back(View view)
