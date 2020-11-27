@@ -73,7 +73,7 @@ public class CustomerSignupActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             reference.child(fAuth.getUid()).setValue(userHelperClass);
                             Toast.makeText(CustomerSignupActivity.this,"User Created",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),ShopListActivity.class));
+                            startActivity(new Intent(getApplicationContext(),ShopCategories.class));
                         }
                         else {
                             Toast.makeText(CustomerSignupActivity.this,"Error " +task.getException(),Toast.LENGTH_SHORT).show();

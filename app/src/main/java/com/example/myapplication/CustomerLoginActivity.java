@@ -55,7 +55,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(CustomerLoginActivity.this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),ShopListActivity.class));
+                            startActivity(new Intent(getApplicationContext(),ShopCategories.class));
                         }
                         else {
                             Toast.makeText(CustomerLoginActivity.this,"Error " +task.getException(),Toast.LENGTH_SHORT).show();

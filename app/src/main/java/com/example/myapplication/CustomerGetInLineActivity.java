@@ -44,8 +44,8 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         category =intent.getStringExtra("category");
        // b3=findViewById(R.id.)
         fAuth = FirebaseAuth.getInstance();
-       reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
-       setLastCoupon();
+       //reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
+       //setLastCoupon();
         Toast.makeText(CustomerGetInLineActivity.this,"Added",Toast.LENGTH_SHORT).show();
 
         b1.setOnClickListener(new View.OnClickListener() {

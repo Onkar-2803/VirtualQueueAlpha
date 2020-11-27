@@ -35,7 +35,7 @@ reference.addValueEventListener(new ValueEventListener() {
 if(snapshot.getKey().equals(fAuth.getUid()))
 {
     finish();
-    startActivity(new Intent(getApplicationContext(), ShopListActivity.class));
+    startActivity(new Intent(getApplicationContext(), ShopCategories.class));
     flag=false;
 }
  }

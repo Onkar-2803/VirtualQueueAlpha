@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class ShopCategories extends AppCompatActivity {
+    public static final  String EXTRA_TEXT="com.example.myapplication.EXTRA_TEXT";
+    public  static  final String EXTRA_NUMBER="com.example.myapplication.EXTRA_NUMBER";
     Button b1,b2,b3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +23,8 @@ public class ShopCategories extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ShopCategories.this,CustomerGetInLineActivity.class);
-                intent.putExtra("category","Grocery");
+                Intent intent=new Intent(ShopCategories.this,ShopListActivity.class);
+                intent.putExtra("temp","grocery");
                 startActivity(intent);
             }
         });
@@ -30,8 +32,9 @@ public class ShopCategories extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ShopCategories.this,CustomerGetInLineActivity.class);
-                intent.putExtra("category","Barber");
+                Intent intent=new Intent(ShopCategories.this,ShopListActivity.class);
+                intent.putExtra("temp","barber");
+
                 startActivity(intent);
 
             }
@@ -40,8 +43,8 @@ public class ShopCategories extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ShopCategories.this,CustomerGetInLineActivity.class);
-                intent.putExtra("category","Pharma");
+                Intent intent=new Intent(ShopCategories.this,ShopListActivity.class);
+                intent.putExtra("temp","pharma");
                 startActivity(intent);
             }
         });
