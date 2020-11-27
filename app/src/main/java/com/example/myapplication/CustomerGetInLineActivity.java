@@ -23,70 +23,69 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Random;
 
 public class CustomerGetInLineActivity extends AppCompatActivity {
-        TextView t1,t2;
-        Button b1,b2,b3;
+    TextView t1, t2;
+    Button b1, b2, b3;
     FirebaseAuth fAuth;
-   private String category;
+    private String category;
     DatabaseReference reference;
-        int countof_participants;
-    int lastCoupon,Coupon;
+    int countof_participants;
+    int lastCoupon, Coupon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_get_in_line);
-        t1=findViewById(R.id.textViewCurrentCouponNumber);
-        t2=findViewById(R.id.currentparticipaipants);
-        b1=findViewById(R.id.buttonGetInLine);
-        b2=findViewById(R.id.mapsgoogle);
+        t1 = findViewById(R.id.textViewCurrentCouponNumber);
+        t2 = findViewById(R.id.currentparticipaipants);
+        b1 = findViewById(R.id.buttonGetInLine);
+        b2 = findViewById(R.id.mapsgoogle);
         Intent intent = getIntent();
 
-        category =intent.getStringExtra("category");
-       // b3=findViewById(R.id.)
+        category = intent.getStringExtra("category");
+        // b3=findViewById(R.id.)
         fAuth = FirebaseAuth.getInstance();
-       //reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
-       //setLastCoupon();
-        Toast.makeText(CustomerGetInLineActivity.this,"Added",Toast.LENGTH_SHORT).show();
+        //reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
+        //setLastCoupon();
+        Toast.makeText(CustomerGetInLineActivity.this, "Added", Toast.LENGTH_SHORT).show();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 countof_participants++;
 
-                Random rand=new Random();
-                int rand_int=rand.nextInt(100);
-                String str1=Integer.toString(rand_int);
-                String str2=Integer.toString(countof_participants);
-              t1.setText(str1);
-              t2.setText(str2);
+                Random rand = new Random();
+                int rand_int = rand.nextInt(100);
+                String str1 = Integer.toString(rand_int);
+                String str2 = Integer.toString(countof_participants);
+                t1.setText(str1);
+                t2.setText(str2);
                 final boolean[] exists = {false};
 
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            if(snapshot.getValue().equals(fAuth.getUid()))
-                            {
-                                Toast.makeText(CustomerGetInLineActivity.this,"You Are Already Added",Toast.LENGTH_SHORT).show();
-                             exists[0] =true;
+                            if (snapshot.getValue().equals(fAuth.getUid())) {
+                                Toast.makeText(CustomerGetInLineActivity.this, "You Are Already Added", Toast.LENGTH_SHORT).show();
+                                exists[0] = true;
                             }
                         }
-                        if(!exists[0])
-                        {
+                        if (!exists[0]) {
                             reference.child(String.valueOf(Coupon)).setValue(fAuth.getUid());
-                            Toast.makeText(CustomerGetInLineActivity.this,"Coupon Number "+Coupon,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerGetInLineActivity.this, "Coupon Number " + Coupon, Toast.LENGTH_SHORT).show();
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
                 });
-           //     Toast.makeText(CustomerGetInLineActivity.this,reference.toString(),Toast.LENGTH_SHORT).show();
-           //     Toast.makeText(CustomerGetInLineActivity.this,reference.orderByKey().limitToLast(1).toString(),Toast.LENGTH_SHORT).show();
-          //    reference.child(String.valueOf(reference.orderByKey().limitToLast(1))).setValue(fAuth.getUid());
-              Toast.makeText(CustomerGetInLineActivity.this,"Added",Toast.LENGTH_SHORT).show();
-               // String.valueOf(Integer.parseInt(String.valueOf(reference.orderByKey().limitToLast(1)))+1)
+                //     Toast.makeText(CustomerGetInLineActivity.this,reference.toString(),Toast.LENGTH_SHORT).show();
+                //     Toast.makeText(CustomerGetInLineActivity.this,reference.orderByKey().limitToLast(1).toString(),Toast.LENGTH_SHORT).show();
+                //    reference.child(String.valueOf(reference.orderByKey().limitToLast(1))).setValue(fAuth.getUid());
+                Toast.makeText(CustomerGetInLineActivity.this, "Added", Toast.LENGTH_SHORT).show();
+                // String.valueOf(Integer.parseInt(String.valueOf(reference.orderByKey().limitToLast(1)))+1)
             }
         });
 
@@ -94,7 +93,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(CustomerGetInLineActivity.this,MapsActivity.class);
+                Intent intent = new Intent(CustomerGetInLineActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });
@@ -107,12 +106,12 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         reference.orderByKey().limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
-                if(!flag[0]) {
+                if (!flag[0]) {
                     lastCoupon = Integer.parseInt(dataSnapshot.getKey());
-                    Coupon=lastCoupon+1;
-                    if(Coupon==0)
-                    Coupon=1;
-                    flag[0] =true;
+                    Coupon = lastCoupon + 1;
+                    if (Coupon == 0)
+                        Coupon = 1;
+                    flag[0] = true;
                 }
             }
 
@@ -140,45 +139,41 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         });
     }
 
-    private boolean addedToLine()
-{
-    reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
-    final boolean[] flag = {false};
-    reference.addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                if(snapshot.getValue().equals(fAuth.getUid()))
-                {
-                    Toast.makeText(CustomerGetInLineActivity.this,snapshot.getValue().toString(),Toast.LENGTH_SHORT).show();
-                    flag[0] = true;
+    private boolean addedToLine() {
+        reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
+        final boolean[] flag = {false};
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (snapshot.getValue().equals(fAuth.getUid())) {
+                        Toast.makeText(CustomerGetInLineActivity.this, snapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
+                        flag[0] = true;
+                    }
                 }
             }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
+        });
+        return flag[0];
+    }
 
 
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    });
-    return flag[0];
-}
-
-
-    public void CurrentLine(View view)
-    {
+    public void CurrentLine(View view) {
         Intent intent = new Intent(this, LineActivity.class);
         startActivity(intent);
     }
 
-    public void ExitLine(View view)
-    {
+    public void ExitLine(View view) {
 
         finish();
     }
-    public void Back(View view)
-    {
+
+    public void Back(View view) {
 
         finish();
     }

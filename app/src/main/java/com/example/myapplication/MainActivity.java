@@ -20,47 +20,50 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     DatabaseReference reference;
     boolean flag = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fAuth = FirebaseAuth.getInstance();
 
+        /*Check  Whether Current User logged in through Customer or vendor*/
         if (fAuth.getCurrentUser() != null) {
             reference = FirebaseDatabase.getInstance().getReference().child("Customers");
-reference.addValueEventListener(new ValueEventListener() {
-    @Override
-    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-if(snapshot.getKey().equals(fAuth.getUid()))
-{
-    finish();
-    startActivity(new Intent(getApplicationContext(), ShopCategories.class));
-    flag=false;
-}
- }
-        if(flag) {
-            finish();
-            startActivity(new Intent(getApplicationContext(), AfterLoginActivity.class));
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        if (snapshot.getKey().equals(fAuth.getUid())) {
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), ShopCategories.class));
+                            flag = false;
+                        }
+                    }
+                    if (flag) {
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), AfterLoginActivity.class));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
         }
     }
 
-    @Override
-    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-    }
-});
-
-        }
-    }
-
-    public void Vendor(View view)
-    {
+    /* Onclick for new vendors*/
+    public void Vendor(View view) {
         Intent intent = new Intent(this, VendorLoginActivity.class);
         startActivity(intent);
     }
-    public void Customer(View view)
-    {
+
+    /*OnClick for new Customers*/
+
+    public void Customer(View view) {
         Intent intent = new Intent(this, CustomerLoginActivity.class);
         startActivity(intent);
     }

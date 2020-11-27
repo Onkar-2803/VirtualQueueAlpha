@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CustomerSignupActivity extends AppCompatActivity {
-    EditText mname,memail,mphone,mpassword,maddress;
+    EditText mname, memail, mphone, mpassword, maddress;
     Button mbutton;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
@@ -31,52 +31,53 @@ public class CustomerSignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /* gets id of xml files*/
         setContentView(R.layout.activity_customer_signup);
-        mname=findViewById(R.id.editTextEditName1);
-        mphone=findViewById(R.id.editTextEditPhone1);
-        memail=findViewById(R.id.email1);
-        mpassword=findViewById(R.id.editTextEditPassword1);
-        mbutton=findViewById(R.id.buttonregister11);
-        maddress=findViewById(R.id.address_xml11);
+        mname = findViewById(R.id.editTextEditName1);
+        mphone = findViewById(R.id.editTextEditPhone1);
+        memail = findViewById(R.id.email1);
+        mpassword = findViewById(R.id.editTextEditPassword1);
+        mbutton = findViewById(R.id.buttonregister11);
+        maddress = findViewById(R.id.address_xml11);
 
-        fAuth=FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                rootnode= FirebaseDatabase.getInstance();
-                reference=rootnode.getReference("Customers");
+                rootnode = FirebaseDatabase.getInstance();
+                reference = rootnode.getReference("Customers");
+
+                /* Store the values of edittext into variables that are entered by user*/
+                String email = memail.getText().toString().trim();
+                String password = mpassword.getText().toString().trim();
+                String Name = mname.getText().toString().trim();
+                String Phone = mphone.getText().toString().trim();
+                String address = maddress.getText().toString().trim();
 
 
-                String email=memail.getText().toString().trim();
-                String password=mpassword.getText().toString().trim();
-                String Name=mname.getText().toString().trim();
-                String Phone=mphone.getText().toString().trim();
-                String address=maddress.getText().toString().trim();
-
-
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     memail.setError("Email is Required");
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mpassword.setError("Password is Required");
                     return;
                 }
+                /* Pass values to a class */
+                UserHelperClass userHelperClass = new UserHelperClass(Name, Phone, email, password, address);
 
-                UserHelperClass userHelperClass=new UserHelperClass(Name,Phone,email,password,address);
-
-                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                /* Method to create new sign in */
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             reference.child(fAuth.getUid()).setValue(userHelperClass);
-                            Toast.makeText(CustomerSignupActivity.this,"User Created",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),ShopCategories.class));
-                        }
-                        else {
-                            Toast.makeText(CustomerSignupActivity.this,"Error " +task.getException(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerSignupActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), ShopCategories.class));
+                        } else {
+                            Toast.makeText(CustomerSignupActivity.this, "Error " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

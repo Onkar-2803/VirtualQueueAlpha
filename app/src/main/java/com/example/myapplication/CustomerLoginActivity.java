@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class CustomerLoginActivity extends AppCompatActivity {
-    EditText memail,mpassword;
+    EditText memail, mpassword;
     Button mbutton;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
@@ -29,49 +29,49 @@ public class CustomerLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_login);
-        memail=findViewById(R.id.customer_email);
-        mpassword=findViewById(R.id.customer_password);
-        mbutton=findViewById(R.id.customer_login);
-        fAuth=FirebaseAuth.getInstance();
+        /* gets id of xml files*/
+        memail = findViewById(R.id.customer_email);
+        mpassword = findViewById(R.id.customer_password);
+        mbutton = findViewById(R.id.customer_login);
+        fAuth = FirebaseAuth.getInstance();
 
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-
-                String email=memail.getText().toString().trim();
-                String password=mpassword.getText().toString().trim();
-                if(TextUtils.isEmpty(email)){
+                String email = memail.getText().toString().trim();
+                String password = mpassword.getText().toString().trim();
+                if (TextUtils.isEmpty(email)) {
                     memail.setError("Email is Required");
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mpassword.setError("Password is Required");
                     return;
                 }
-                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                /* Method to check log in successfull or not*/
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(CustomerLoginActivity.this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),ShopCategories.class));
-                        }
-                        else {
-                            Toast.makeText(CustomerLoginActivity.this,"Error " +task.getException(),Toast.LENGTH_SHORT).show();
+                        if (task.isSuccessful()) {
+                            Toast.makeText(CustomerLoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), ShopCategories.class));
+                        } else {
+                            Toast.makeText(CustomerLoginActivity.this, "Error " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
     }
-    public void Login(View view)
-    {
+
+    public void Login(View view) {
         Intent intent = new Intent(this, ShopCategories.class);
         startActivity(intent);
     }
-    public void Signup(View view)
-    {
+
+    public void Signup(View view) {
         Intent intent = new Intent(this, CustomerSignupActivity.class);
         startActivity(intent);
     }
