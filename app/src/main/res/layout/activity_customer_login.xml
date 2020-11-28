@@ -11,6 +11,7 @@
 
     <EditText
         android:id="@+id/customer_email"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
        android:layout_gravity="center"
@@ -38,7 +39,8 @@
 
         android:onClick="Signup"
         android:text="Signup"
-        app:backgroundTint="@color/colorPrimary">
+        android:textColor="@color/black"
+        app:backgroundTint="@color/teal_700">
 
     </Button>
     <TextView
@@ -57,7 +59,8 @@
         android:onClick="Login"
 
         android:text="Login"
-        app:backgroundTint="@color/colorPrimary" />
+        android:textColor="@color/black"
+        app:backgroundTint="@color/teal_700" />
 
 
 </LinearLayout>

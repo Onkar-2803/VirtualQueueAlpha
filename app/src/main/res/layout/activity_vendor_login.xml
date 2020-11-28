@@ -8,12 +8,11 @@
     tools:context=".CustomerLoginActivity">
 
 
-
     <EditText
         android:id="@+id/email_xml1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:layout_gravity="center"
+        android:layout_gravity="center"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
@@ -28,40 +27,41 @@
         android:inputType="textPassword" />
 
 
-        <Button
-            android:id="@+id/buttonSignup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="Signup"
-            android:text="Signup"
-            app:backgroundTint="@color/colorPrimary">
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="Signup"
+        android:text="Signup"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/teal_700">
 
-        </Button>
-        <TextView
-            android:id="@+id/textViewNotRegistered"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Signup Now If You Haven't Already" />
+    </Button>
 
-        <Button
-            android:id="@+id/buttonLogin1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           android:layout_gravity="center"
-            android:onClick="Login"
+    <TextView
+        android:id="@+id/textViewNotRegistered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Signup Now If You Haven't Already" />
 
-            android:text="Login"
-            app:backgroundTint="@color/colorPrimary" />
-        <CheckBox
-            android:id="@+id/checkBoxLoggedIN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Keep Me Logged In"
-            android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/buttonLogin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="Login"
+        android:text="Login"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/teal_700" />
 
-
+    <CheckBox
+        android:id="@+id/checkBoxLoggedIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Keep Me Logged In" />
 
 
 </LinearLayout>

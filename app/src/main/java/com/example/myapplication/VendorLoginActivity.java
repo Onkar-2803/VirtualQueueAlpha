@@ -31,7 +31,7 @@ public class VendorLoginActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
 
         if (fAuth.getCurrentUser() != null) {
-
+ 
             startActivity(new Intent(getApplicationContext(), AfterLoginActivity.class));
             finish();
         }

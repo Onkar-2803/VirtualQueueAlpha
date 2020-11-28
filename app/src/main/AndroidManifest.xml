@@ -10,21 +10,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".CustomerVerifyPhoneNumber"></activity>
+        <activity android:name=".CustomerVerifyPhoneNumber"> </activity>
         <activity android:name=".MapsActivity" />
         <activity android:name=".ShopCategories" />
-        <activity android:name=".CustomerLoginActivity" />
-        <activity android:name=".VendorLoginActivity" />
+        <activity android:name=".CustomerLoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"> </activity>
+        <activity android:name=".VendorLoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".CustomerGetInLineActivity" />
-        <activity android:name=".ShopListActivity" />
-        <activity android:name=".CustomerSignupActivity" />
+        <activity android:name=".ShopListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".CustomerSignupActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".EditInfoActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".LineActivity" />
         <activity android:name=".CurrentLineActivity" />
         <activity android:name=".AfterLoginActivity" />
-        <activity android:name=".VendorSignupActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".VendorSignupActivity"
+            android:theme="@style/AppTheme.NoActionBar"> </activity>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
