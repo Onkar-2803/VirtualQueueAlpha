@@ -27,6 +27,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
     Button b1, b2, b3;
     FirebaseAuth fAuth;
     private String category;
+    private String shopname;
     DatabaseReference reference;
     int countof_participants;
     int lastCoupon, Coupon;
@@ -40,24 +41,24 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         b1 = findViewById(R.id.buttonGetInLine);
         b2 = findViewById(R.id.mapsgoogle);
         Intent intent = getIntent();
-
         category = intent.getStringExtra("category");
+        shopname = intent.getStringExtra("shopname");
         // b3=findViewById(R.id.)
         fAuth = FirebaseAuth.getInstance();
-        //reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
-        //setLastCoupon();
-        Toast.makeText(CustomerGetInLineActivity.this, "Added", Toast.LENGTH_SHORT).show();
+        reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
 
+        setLastCoupon();
+        setCoupon();
+        setCurrentParticipants();
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 countof_participants++;
-
+                reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
                 Random rand = new Random();
                 int rand_int = rand.nextInt(100);
                 String str1 = Integer.toString(rand_int);
                 String str2 = Integer.toString(countof_participants);
-                t1.setText(str1);
                 t2.setText(str2);
                 final boolean[] exists = {false};
 
@@ -71,8 +72,13 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
                             }
                         }
                         if (!exists[0]) {
+                            if (Coupon<=0)
+                            {
+                                Coupon = 1;
+                            }
                             reference.child(String.valueOf(Coupon)).setValue(fAuth.getUid());
                             Toast.makeText(CustomerGetInLineActivity.this, "Coupon Number " + Coupon, Toast.LENGTH_SHORT).show();
+                            t1.setText(String.valueOf(Coupon));
                         }
                     }
 
@@ -84,7 +90,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
                 //     Toast.makeText(CustomerGetInLineActivity.this,reference.toString(),Toast.LENGTH_SHORT).show();
                 //     Toast.makeText(CustomerGetInLineActivity.this,reference.orderByKey().limitToLast(1).toString(),Toast.LENGTH_SHORT).show();
                 //    reference.child(String.valueOf(reference.orderByKey().limitToLast(1))).setValue(fAuth.getUid());
-                Toast.makeText(CustomerGetInLineActivity.this, "Added", Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(CustomerGetInLineActivity.this, "Added", Toast.LENGTH_SHORT).show();
                 // String.valueOf(Integer.parseInt(String.valueOf(reference.orderByKey().limitToLast(1)))+1)
             }
         });
@@ -98,6 +104,45 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void setCurrentParticipants() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() { //ref will be your desired path where you want to count children
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {   // Check for data snapshot has some value
+                      // check for counts of data snapshot children
+                    t2.setText(String.valueOf(dataSnapshot.getChildrenCount()));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void setCoupon() {
+        final int[] coupon = {-1};
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    if (snapshot.getValue().equals(fAuth.getUid())) {
+                        coupon[0] = Integer.parseInt(snapshot.getKey());
+                        t1.setText(String.valueOf(coupon[0]));
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -140,7 +185,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
     }
 
     private boolean addedToLine() {
-        reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category);
+        reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
         final boolean[] flag = {false};
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -174,7 +219,6 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
     }
 
     public void Back(View view) {
-
         finish();
     }
 }

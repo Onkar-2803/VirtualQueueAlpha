@@ -93,16 +93,67 @@ public class ShopListActivity extends AppCompatActivity {
         String text1 = getIntent().getStringExtra("temp");
 
 
-        /* Create a ArrayList to store Values of Shops and pass it to arrayadapter so that it can adapat the data*/
-        // ArrayList<Information> words = new ArrayList<>();
+        // Pass reference of database to DataBasereference object
+        DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("Shops").child(text1);
+        reference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-        /*Check whether the incoming intent is clicked on barber or pharma or grocery*/
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // Store the data in information class that we created so that we can pass single object to listview to display it
+                    Information info = snapshot.getValue(Information.class);
 
+                    words.add(info);
+                    WordAdapter adapter = new WordAdapter(getApplicationContext(), words);
+                    //String txt=info.getShopname()+ ": "+info.getAddress();
+                    ListView listView = (ListView) findViewById(R.id.listView_xml);
+                    listView.setAdapter(adapter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                            Information info1 = (Information)adapterView.getAdapter().getItem(i);
+                            Intent intent2 = new Intent(getApplicationContext(), CustomerGetInLineActivity.class);
+                            intent2.putExtra("category",text1);
+                            intent2.putExtra("shopname",info1.getShopname());
+                            startActivity(intent2);
+                        }
+                    });
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    public void selectShop(View view) {
+        Intent intent1 = new Intent(getApplicationContext(), CustomerGetInLineActivity.class);
+        startActivity(intent1);
+    }
+
+    public void Back(View view) {
+        this.finish();
+    }
+
+
+}
+
+/* Create a ArrayList to store Values of Shops and pass it to arrayadapter so that it can adapt the data*/
+// ArrayList<Information> words = new ArrayList<>();
+
+
+/*Check whether the incoming intent is clicked on barber or pharma or grocery*/
+/*
 
         if (text1.equals("barber")) {
 
-            /* Pass reference of database to DataBasereference object */
+            // Pass reference of database to DataBasereference object
             DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("Shops").child("barber");
             reference1.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -110,7 +161,7 @@ public class ShopListActivity extends AppCompatActivity {
 
 
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        /* Store the data in information class that we created so that we can pass single object to listview to display it*/
+                       // Store the data in information class that we created so that we can pass single object to listview to display it
                         Information info = snapshot.getValue(Information.class);
 
                         words.add(info);
@@ -136,7 +187,7 @@ public class ShopListActivity extends AppCompatActivity {
             });
 
         }
-        /* Same like above*/
+        //Same like above
         if (text1.equals("pharma")) {
             DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("Shops").child("pharma");
             reference1.addValueEventListener(new ValueEventListener() {
@@ -145,9 +196,9 @@ public class ShopListActivity extends AppCompatActivity {
 
 
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        /* Store the data in information class that we created so that we can pass single object to listview to display it*/
+                        // Store the data in information class that we created so that we can pass single object to listview to display it
                         Information info = snapshot.getValue(Information.class);
-                        /* getdata from info object and store it in txt file*/
+                        // getdata from info object and store it in txt file
                         words.add(info);
                         WordAdapter adapter = new WordAdapter(getApplicationContext(), words);
                         //String txt=info.getShopname()+ ": "+info.getAddress();
@@ -179,9 +230,9 @@ public class ShopListActivity extends AppCompatActivity {
 
 
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        /* Store the data in information class that we created so that we can pass single object to listview to display it*/
+                        // Store the data in information class that we created so that we can pass single object to listview to display it
                         Information info = snapshot.getValue(Information.class);
-                        /* getdata from info object and store it in txt file*/
+                        // getdata from info object and store it in txt file
                         words.add(info);
                         WordAdapter adapter = new WordAdapter(getApplicationContext(), words);
                         //String txt=info.getShopname()+ ": "+info.getAddress();
@@ -206,19 +257,5 @@ public class ShopListActivity extends AppCompatActivity {
 
 
         }
+        */
 
-        /* onclick  when user clicks on logout button*/
-
-    }
-
-    public void selectShop(View view) {
-        Intent intent1 = new Intent(getApplicationContext(), CustomerGetInLineActivity.class);
-        startActivity(intent1);
-    }
-
-    public void Back(View view) {
-        this.finish();
-    }
-
-
-}

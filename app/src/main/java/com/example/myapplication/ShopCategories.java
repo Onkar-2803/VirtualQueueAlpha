@@ -16,7 +16,7 @@ public class ShopCategories extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_categories);
-        b1 = findViewById(R.id.grocery);
+        b1 = findViewById(R.id.Grocery);
         b2 = findViewById(R.id.Barber);
         b3 = findViewById(R.id.Pharma);
 
