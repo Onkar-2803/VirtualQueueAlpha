@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +41,11 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         t2 = findViewById(R.id.currentparticipaipants);
         b1 = findViewById(R.id.buttonGetInLine);
         b2 = findViewById(R.id.mapsgoogle);
+        b3=findViewById(R.id.buttonCurrentLine);
+
+      //  RecyclerView programminglist=(RecyclerView)findViewById(R.id.queue_data);
+
+
         Intent intent = getIntent();
         category = intent.getStringExtra("category");
         shopname = intent.getStringExtra("shopname");
@@ -50,16 +56,27 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         setLastCoupon();
         setCoupon();
         setCurrentParticipants();
+
+
+       // DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference().child("Shops").child(category).child(shopname);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        Intent intent2=new Intent(getApplicationContext(),QueueDataDisplay.class);
+                        intent2.putExtra("category_1",category);
+                        intent2.putExtra("shopname_1",shopname);
+                        startActivity(intent2);
+            }
+        });
+
+
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                countof_participants++;
                 reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
                 Random rand = new Random();
-                int rand_int = rand.nextInt(100);
-                String str1 = Integer.toString(rand_int);
-                String str2 = Integer.toString(countof_participants);
-                t2.setText(str2);
+
+
                 final boolean[] exists = {false};
 
                 reference.addValueEventListener(new ValueEventListener() {
@@ -205,6 +222,8 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
             }
         });
         return flag[0];
+
+
     }
 
 
