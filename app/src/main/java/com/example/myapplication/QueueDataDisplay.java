@@ -53,6 +53,8 @@ public class QueueDataDisplay extends AppCompatActivity {
                         String temp1=snapshot.getValue().toString();
                         DatabaseReference namereference= FirebaseDatabase.getInstance().getReference().child("Customers").child(temp1);
 
+                  //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Queues").c;
+
                         String temp2=snapshot.getKey().toString();
                        InformationQueue info1=new InformationQueue(temp2, temp1);
 

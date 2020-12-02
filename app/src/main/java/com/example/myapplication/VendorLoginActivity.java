@@ -15,6 +15,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class VendorLoginActivity extends AppCompatActivity {
     EditText memail, mpassword;
@@ -55,8 +59,12 @@ public class VendorLoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            String currentUser=FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            //Toast.makeText(VendorLoginActivity.this, ""+currentUser, Toast.LENGTH_LONG).show();
+                            //DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Vendor").child()
                             Toast.makeText(VendorLoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), AfterLoginActivity.class));
+                            Intent intent= new Intent(getApplicationContext(),AfterLoginActivity.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(VendorLoginActivity.this, "Error " + task.getException(), Toast.LENGTH_SHORT).show();
                         }

@@ -17,7 +17,7 @@ public class AfterLoginActivity extends AppCompatActivity {
     }
     public  void logout(View view){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),VendorLoginActivity.class));
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();
     }
     public void CurrentLine(View view)
