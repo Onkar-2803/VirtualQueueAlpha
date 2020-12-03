@@ -42,7 +42,6 @@ public class AfterLoginActivity extends AppCompatActivity {
     public void Exit(View view)
     {
         finish();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        System.exit(0);
     }
 }

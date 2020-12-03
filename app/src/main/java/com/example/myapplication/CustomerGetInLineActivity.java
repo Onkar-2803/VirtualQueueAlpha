@@ -241,13 +241,14 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
         user=fAuth.getCurrentUser();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        Query applesQuery = ref.child("Queues").child(category).child(shopname).orderByChild(user.getUid()).equalTo(user.getUid());
+        Query applesQuery = ref.child("Queues").child(category).child(shopname).orderByValue().equalTo(user.getUid());
 
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
                     appleSnapshot.getRef().removeValue();
+                    Toast.makeText(CustomerGetInLineActivity.this, "You Have Exited The Queue", Toast.LENGTH_SHORT).show();
                 }
             }
 
