@@ -27,6 +27,10 @@ import java.util.Random;
 
 public class CustomerGetInLineActivity extends AppCompatActivity {
     TextView t1, t2;
+
+    //Onkar is NOOb Noob Noob Noob
+
+
     Button b1, b2, b3;
     FirebaseAuth fAuth;
     private String category;
