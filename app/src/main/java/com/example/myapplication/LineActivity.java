@@ -42,44 +42,44 @@ public class LineActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-        DatabaseReference reference1= FirebaseDatabase.getInstance().getReference().child("Vendor").child(user.getUid());
+            DatabaseReference reference1= FirebaseDatabase.getInstance().getReference().child("Vendor").child(user.getUid());
         reference1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
                     shopname=dataSnapshot.child("shopname").getValue().toString();
                     category=dataSnapshot.child("category").getValue().toString();
-                   // name=dataSnapshot.child("name").getValue().toString();
+                    // name=dataSnapshot.child("name").getValue().toString();
 
-                Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
-                DatabaseReference reference3= FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
-                reference3.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        list.clear();
+                    Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
+                    DatabaseReference reference3= FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
+                    reference3.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            list.clear();
 
-                        for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                            for(DataSnapshot snapshot: dataSnapshot.getChildren()){
 
-                            String temp1=snapshot.getValue().toString();
-                            String temp2=snapshot.getKey().toString();
-                            InformationQueue info1=new InformationQueue(temp2, temp1);
+                                String temp1=snapshot.getValue().toString();
+                                String temp2=snapshot.getKey().toString();
+                                InformationQueue info1=new InformationQueue(temp2, temp1);
 
-                            String txt=info1.getNumber()+": "+info1.getUid();
-                            list.add(txt);
+                                String txt=info1.getNumber()+": "+info1.getUid();
+                                list.add(txt);
+                            }
+                            adapter.notifyDataSetChanged();
                         }
-                        adapter.notifyDataSetChanged();
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
+                        }
+                    });
 
 
 
-            }
+                }
 
 
 
@@ -87,7 +87,7 @@ public class LineActivity extends AppCompatActivity {
 
 
 
-            @Override
+                @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }

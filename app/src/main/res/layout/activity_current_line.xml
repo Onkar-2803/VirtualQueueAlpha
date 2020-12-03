@@ -28,9 +28,8 @@ android:orientation="vertical">
         android:layout_gravity="center"
         android:layout_margin="20dp"
 
-        android:text="1024"
+        android:text="1021"
         />
-
 
 
 

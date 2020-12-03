@@ -14,6 +14,10 @@ public class AfterLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login_activty);
+        
+        
+        
+        
     }
     public  void logout(View view){
         FirebaseAuth.getInstance().signOut();
