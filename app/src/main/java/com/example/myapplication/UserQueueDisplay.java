@@ -26,6 +26,14 @@ public class UserQueueDisplay {
         this.email = email;
     }
 
+    public UserQueueDisplay(String address, String email, String name, String password, String phone) {
+        this.address = address;
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.password = password;
+    }
+
     public String getName() {
         return name;
     }
