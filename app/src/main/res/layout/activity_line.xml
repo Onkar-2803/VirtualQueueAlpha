@@ -13,6 +13,7 @@
         android:layout_width="332dp"
         android:layout_height="440dp"
         android:layout_gravity="center"
+
          />
 
     <Button

@@ -77,10 +77,12 @@ public class VendorLoginActivity extends AppCompatActivity {
     public void Login(View view) {
         Intent intent = new Intent(this, AfterLoginActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void Signup(View view) {
         Intent intent = new Intent(this, VendorSignupActivity.class);
         startActivity(intent);
+        finish();
     }
 }
