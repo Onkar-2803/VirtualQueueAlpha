@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -64,12 +65,29 @@ public class LineActivity extends AppCompatActivity {
                                 String temp1=snapshot.getValue().toString();
                                 String temp2=snapshot.getKey().toString();
                                 InformationQueue info1=new InformationQueue(temp2, temp1);
+                                DatabaseReference namereference= FirebaseDatabase.getInstance().getReference().child("Customers");
+                                Query query = namereference.getRef().child(info1.getUid()).child("name");
+                            //    Toast.makeText(getApplicationContext(),query.toString().toString(),Toast.LENGTH_SHORT).show();
+                                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                     //   Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
+                                        String txt=info1.getNumber()+": "+dataSnapshot.getValue();
+                                        list.add(txt);
+                                        adapter.notifyDataSetChanged();
+                                    }
 
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                                 String txt=info1.getNumber()+": "+info1.getUid();
-                                list.add(txt);
+
                             }
-                            adapter.notifyDataSetChanged();
+
                         }
+
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {

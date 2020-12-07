@@ -54,9 +54,44 @@ TextView number;
                             String temp2=snapshot.getKey().toString();
                             InformationQueue info1=new InformationQueue(temp2, temp1);
 
-                            String txt=info1.getNumber()+": "+info1.getUid();
 
-                            number.setText(txt);
+
+                            DatabaseReference namereference= FirebaseDatabase.getInstance().getReference().child("Customers");
+                            Query query = namereference.getRef().child(info1.getUid()).child("name");
+                //            Toast.makeText(getApplicationContext(),query.toString().toString(),Toast.LENGTH_SHORT).show();
+                            query.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                           //         Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
+                                    String txt=info1.getNumber()+": "+dataSnapshot.getValue();
+                                    number.setText(txt);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+             /*               query.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                    Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_SHORT).show();
+                                UserQueueDisplay user = dataSnapshot.getValue(UserQueueDisplay.class);
+                                //Toast.makeText(getApplicationContext(),user.getName(),Toast.LENGTH_SHORT).show();
+                                   String txt=info1.getNumber()+": "+user.getName();
+                               number.setText(txt);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+              */
+
+
                             break;
 
                         }
