@@ -7,24 +7,34 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".MapsActivity">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Source"
-        android:id="@+id/et_source"
-        android:padding="12dp"/>
 
     <EditText
-        android:layout_width="match_parent"
+        android:textColor="@color/color1"
+        android:id="@+id/et_source"
+        android:layout_width="327dp"
         android:layout_height="wrap_content"
-        android:id="@+id/et_destination"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/color1"
+        android:hint="Enter Source"
         android:padding="12dp"
-        android:layout_marginTop="8dp"
-        android:hint="Enter Destination"/>
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/bt_track"
-    android:text="submit"
-    android:layout_marginTop="16dp"/>
+        android:textColorHint="@color/color1" />
+
+    <EditText
+        android:textColor="@color/color1"
+        android:id="@+id/et_destination"
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/color1"
+        android:hint="Enter Destination"
+        android:padding="12dp"
+        android:textColorHint="@color/color1" />
+
+    <Button
+        android:id="@+id/bt_track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="submit"
+        android:textSize="16dp" />
 </LinearLayout>

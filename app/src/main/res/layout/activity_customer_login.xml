@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,48 +7,69 @@
     android:orientation="vertical"
     tools:context=".CustomerLoginActivity">
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/color3">
 
     <EditText
         android:id="@+id/customer_email"
-
+        android:textColor="@color/color1"
+        android:textColorHint="@color/color1"
+        android:backgroundTint="@color/color1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
        android:layout_gravity="center"
         android:padding="20dp"
+
+        android:layout_marginTop="75dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/customer_password"
+
+        android:textColorHint="@color/color1"
+        android:backgroundTint="@color/color1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:layout_gravity="center"
         android:padding="20dp"
+        android:textColor="@color/color1"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
 
 
-    <Button
-        android:id="@+id/buttonSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        <Button
+            android:id="@+id/buttonSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+android:textSize="16dp"
+            android:layout_marginTop="40dp"
+            android:onClick="Signup"
 
-        android:onClick="Signup"
-        android:text="Signup"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/teal_700">
+            android:text="Signup"
+            android:textColor="@color/color1"
+            app:backgroundTint="@color/color4">
 
-    </Button>
+        </Button>
     <TextView
         android:id="@+id/textViewNotRegistered"
         android:layout_width="wrap_content"
+        android:textColor="@color/color1"
+        android:textStyle="italic"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Signup Now If You Haven't Already" />
+
+        android:layout_marginTop="75dp"
+        android:text="Signup Now If You Haven't Already"
+
+   />
 
     <Button
         android:id="@+id/customer_login"
@@ -57,13 +78,14 @@
         android:layout_gravity="center"
 
         android:onClick="Login"
-
+        android:textSize="16dp"
+        android:layout_marginTop="25dp"
         android:text="Login"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/teal_700" />
+        android:textColor="@color/color1"
+        app:backgroundTint="@color/color4" />
 
 
 </LinearLayout>
 
-
+</RelativeLayout>
 

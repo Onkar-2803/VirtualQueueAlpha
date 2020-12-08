@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/color3">
 
 
     <Button
@@ -15,8 +16,8 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="196dp"
         android:onClick="Vendor"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/teal_700"
+        android:textColor="@color/color1"
+        android:backgroundTint="@color/color4"
         android:text="Vendor"
          />
 
@@ -32,7 +33,7 @@
         android:layout_marginLeft="125dp"
         android:layout_marginBottom="214dp"
         android:onClick="Customer"
-        android:textColor="@color/black"
-        android:text="Customer"
-        app:backgroundTint="@color/teal_700" />
+        android:textColor="@color/color1"
+        android:backgroundTint="@color/color4"
+        android:text="Customer" />
 </RelativeLayout>

@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".ShopCategories">
+    tools:context=".ShopCategories"
+    >
 
     <Button
         android:id="@+id/Barber"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="100dp"
         android:text="Barber"
         app:backgroundTint="#FB7044" />
 
@@ -32,7 +32,7 @@
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="100dp"
         android:text="Grocery"
         app:backgroundTint="#4CAF50" />
 

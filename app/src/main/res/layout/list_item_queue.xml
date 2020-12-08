@@ -6,7 +6,7 @@
     android:padding="10dp"
     android:textStyle=""
     android:textSize="30dp"
-    android:textColor="@color/black"
+    android:textColor="@color/color1"
     tools:text="sasasa"
     android:id="@+id/labeled">
 

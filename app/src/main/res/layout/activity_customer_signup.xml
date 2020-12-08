@@ -1,84 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    tools:context=".CustomerSignupActivity"
-    android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/color3"
     tools:context=".CustomerSignupActivity">
 
-
-    <EditText
-        android:id="@+id/editTextEditName1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/editTextEditPhone1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:ems="10"
-        android:hint="Phone"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/email1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:ems="10"
-        android:hint="email"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/editTextEditPassword1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:layout_margin="30dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/address_xml11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30dp"
-        android:ems="10"
-        android:hint="Address"
-        android:inputType="textPostalAddress" />
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color3"
+        android:orientation="vertical"
+        tools:context=".CustomerSignupActivity">
 
 
-    <Button
-        android:id="@+id/buttonregister11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:text="Register"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/teal_700" />
+        <EditText
+            android:id="@+id/editTextEditName1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
 
-</LinearLayout>
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"/>
+
+        <EditText
+            android:id="@+id/editTextEditPhone1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/color1"
+            android:ems="10"
+            android:textColor="@color/color1"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:textColorHint="@color/color1" />
+
+        <EditText
+            android:textColor="@color/color1"
+            android:id="@+id/email1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/color1"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/color1" />
+
+        <EditText
+            android:id="@+id/editTextEditPassword1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/color1"
+            android:textColor="@color/color1"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/color1" />
+
+        <EditText
+            android:id="@+id/address_xml11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/color1"
+            android:ems="10"
+            android:textColor="@color/color1"
+            android:hint="Address"
+            android:inputType="textPostalAddress"
+            android:textColorHint="@color/color1" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+
+        <Button
+            android:id="@+id/buttonregister11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="Register"
+            android:textColor="@color/color1"
+            app:backgroundTint="@color/color4" />
+
+    </LinearLayout>
 </ScrollView>

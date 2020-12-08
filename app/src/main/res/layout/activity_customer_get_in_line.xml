@@ -20,7 +20,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+android:textColor="@color/color1"
             android:layout_marginLeft="40dp"
             android:padding="20dp"
             android:text="Your Coupon Number"
@@ -34,6 +34,7 @@
             android:layout_marginLeft="30dp"
             android:padding="20dp"
             android:text="0"
+            android:textColor="@color/color1"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -52,6 +53,7 @@
             android:padding="20dp"
             android:text="Current Participants"
             android:textSize="20dp"
+            android:textColor="@color/color1"
             android:textStyle="bold"/>
 
         <TextView
@@ -61,6 +63,7 @@
             android:layout_marginLeft="50dp"
             android:padding="20dp"
             android:text="0"
+            android:textColor="@color/color1"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -74,7 +77,7 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:drawableRight="@drawable/ic_baseline_people"
-        android:text="Current Line On going "
+        android:text="Current Line"
          />
 
     <Button
