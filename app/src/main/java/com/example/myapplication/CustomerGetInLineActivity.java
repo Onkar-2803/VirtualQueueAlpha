@@ -159,7 +159,8 @@ boolean flag=true;
                 Intent intent = new Intent(CustomerGetInLineActivity.this, MapsActivity.class);
             //    startActivity(intent);
                 try{
-                    Uri uri=Uri.parse("https://www.google.co.in/maps/dir/"+ "my location" +"/"+shopname+","+address);
+                  //  Uri uri=Uri.parse("https://www.google.co.in/maps/dir/"+ "my location" +"/"+shopname+","+address);
+                    Uri uri=Uri.parse("google.navigation:q="+shopname.trim()+"("+address.trim()+")");
                     intent=new Intent(Intent.ACTION_VIEW,uri);
                     intent.setPackage("com.google.android.apps.maps");
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
