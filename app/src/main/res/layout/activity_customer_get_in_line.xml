@@ -1,127 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".CustomerGetInLineActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
+        android:orientation="vertical"
+        tools:context=".CustomerGetInLineActivity">
 
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-android:textColor="@color/color1"
-            android:layout_marginLeft="40dp"
-            android:padding="20dp"
-            android:text="Your Coupon Number"
-            android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textViewCurrentCouponNumber"
-            android:layout_width="96dp"
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:padding="20dp"
+                android:text="Your Coupon Number"
+                android:textColor="@color/color1"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewCurrentCouponNumber"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:padding="20dp"
+                android:text="0"
+                android:textColor="@color/color1"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:padding="20dp"
-            android:text="0"
-            android:textColor="@color/color1"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:padding="20dp"
+                android:text="Current Participants"
+                android:textColor="@color/color1"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/currentparticipaipants"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:padding="20dp"
+                android:text="0"
+                android:textColor="@color/color1"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/buttonCurrentLine"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:drawableRight="@drawable/ic_baseline_people"
+            android:text="Current Line" />
+
+        <Button
+            android:id="@+id/buttonExitLine"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:drawableRight="@drawable/ic_baseline_exit"
+            android:onClick="ExitLine"
+            android:text="Exit Line" />
+
+        <Button
+            android:id="@+id/buttonGetInLine"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:drawableRight="@drawable/ic_baseline_person_add_alt_1_24"
+
+            android:text="Get In Line" />
+
+        <Button
+            android:id="@+id/mapsgoogle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:drawableRight="@drawable/ic_baseline_location_on_24"
+            android:text="GetPath" />
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:drawableRight="@drawable/ic_baseline_arrow_back_24"
+            android:onClick="Back"
+            android:text="Back" />
+
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textViewOTP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:padding="20dp"
-            android:text="Current Participants"
-            android:textSize="20dp"
-            android:textColor="@color/color1"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/currentparticipaipants"
-            android:layout_width="73dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:padding="20dp"
-            android:text="0"
-            android:textColor="@color/color1"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/buttonCurrentLine"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:drawableRight="@drawable/ic_baseline_people"
-        android:text="Current Line"
-         />
-
-    <Button
-        android:drawableRight="@drawable/ic_baseline_exit"
-        android:id="@+id/buttonExitLine"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:onClick="ExitLine"
-        android:text="Exit Line"
-         />
-
-    <Button
-        android:drawableRight="@drawable/ic_baseline_person_add_alt_1_24"
-        android:id="@+id/buttonGetInLine"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-
-        android:text="Get In Line" />
-
-    <Button
-        android:drawableRight="@drawable/ic_baseline_location_on_24"
-        android:id="@+id/mapsgoogle"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="GetPath"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"/>
-
-    <Button
-        android:drawableRight="@drawable/ic_baseline_arrow_back_24"
-        android:id="@+id/buttonBack"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:onClick="Back"
-        android:text="Back"
-         />
-
-
-</LinearLayout>
 
 </ScrollView>
