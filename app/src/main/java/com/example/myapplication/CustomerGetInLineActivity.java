@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -64,6 +66,7 @@ boolean flag=true;
     FirebaseAuth fAuth;
     private String category;
     private String shopname;
+    private String address;
     DatabaseReference reference;
     int countof_participants;
     int lastCoupon, Coupon;
@@ -84,6 +87,7 @@ boolean flag=true;
         Intent intent = getIntent();
         category = intent.getStringExtra("category");
         shopname = intent.getStringExtra("shopname");
+        address = intent.getStringExtra("address");
         // b3=findViewById(R.id.)
         fAuth = FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
@@ -153,7 +157,21 @@ boolean flag=true;
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CustomerGetInLineActivity.this, MapsActivity.class);
-                startActivity(intent);
+            //    startActivity(intent);
+                try{
+                    Uri uri=Uri.parse("https://www.google.co.in/maps/dir/"+ "my location" +"/"+shopname+","+address);
+                    intent=new Intent(Intent.ACTION_VIEW,uri);
+                    intent.setPackage("com.google.android.apps.maps");
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+                catch (ActivityNotFoundException e){
+                    Uri uri=Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
+                    intent=new Intent(Intent.ACTION_VIEW,uri);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+
+                }
             }
         });
 

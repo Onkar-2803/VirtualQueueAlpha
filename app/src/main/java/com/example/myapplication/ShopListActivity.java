@@ -117,6 +117,7 @@ public class ShopListActivity extends AppCompatActivity {
                             Intent intent2 = new Intent(getApplicationContext(), CustomerGetInLineActivity.class);
                             intent2.putExtra("category",text1);
                             intent2.putExtra("shopname",info1.getShopname());
+                            intent2.putExtra("address",info1.getAddress());
                             startActivity(intent2);
                         }
                     });
