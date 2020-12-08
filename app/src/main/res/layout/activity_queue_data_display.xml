@@ -6,9 +6,23 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".QueueDataDisplay">
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical">
+    <ListView
+        android:layout_width="332dp"
+        android:layout_height="572dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
         android:id="@+id/list_view_queue"/>
+    <Button
+        android:id="@+id/buttonBackFromLine"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:drawableTop="@drawable/ic_baseline_arrow_back_24"
+        android:onClick="Back"
 
+        /></LinearLayout>
 </LinearLayout>

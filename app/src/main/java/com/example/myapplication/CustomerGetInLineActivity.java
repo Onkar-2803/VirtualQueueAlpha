@@ -30,7 +30,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
 
     //Onkar is NOOb Noob Noob Noob
 
-
+boolean flag=true;
     Button b1, b2, b3;
     FirebaseAuth fAuth;
     private String category;
@@ -84,10 +84,10 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
 
 
                 final boolean[] exists = {false};
-
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        t2.setText(String.valueOf(dataSnapshot.getChildrenCount()));
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             if (snapshot.getValue().equals(fAuth.getUid())) {
                                 Toast.makeText(CustomerGetInLineActivity.this, "You Are Already Added", Toast.LENGTH_SHORT).show();
@@ -102,6 +102,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
                             reference.child(String.valueOf(Coupon)).setValue(fAuth.getUid());
                             Toast.makeText(CustomerGetInLineActivity.this, "Coupon Number " + Coupon, Toast.LENGTH_SHORT).show();
                             t1.setText(String.valueOf(Coupon));
+                            setCurrentParticipants();
                         }
                     }
 
@@ -239,7 +240,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
     }
 
     public void ExitLine(View view) {
-        /*
+        t1.setText(String.valueOf(0));
         FirebaseAuth fAuth;
         FirebaseUser user;
         fAuth= FirebaseAuth.getInstance();
@@ -253,6 +254,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
                 for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
                     appleSnapshot.getRef().removeValue();
                     Toast.makeText(CustomerGetInLineActivity.this, "You Have Exited The Queue", Toast.LENGTH_SHORT).show();
+                    setCurrentParticipants();
                 }
             }
 
@@ -261,8 +263,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
 
             }
         });
-        
-         */
+
 
     }
 

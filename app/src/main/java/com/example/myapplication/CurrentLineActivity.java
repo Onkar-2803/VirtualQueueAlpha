@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CurrentLineActivity extends AppCompatActivity {
     String shopname,category,name;
 TextView number;
+    TextView currentnumber;
 TextView phone_num;
     FirebaseAuth fAuth;
     FirebaseUser user;
@@ -31,6 +32,7 @@ TextView phone_num;
         setContentView(R.layout.activity_current_line);
         number = (TextView) findViewById(R.id.textViewCurrentCouponNumber);
         phone_num=(TextView)findViewById(R.id.phone_number);
+        currentnumber=(TextView)findViewById(R.id.textViewCurrent);
         fAuth= FirebaseAuth.getInstance();
         user=fAuth.getCurrentUser();
         DatabaseReference reference1= FirebaseDatabase.getInstance().getReference().child("Vendor").child(user.getUid());

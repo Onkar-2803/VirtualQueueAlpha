@@ -45,19 +45,19 @@
 
 
         <Button
-            android:id="@+id/buttonSignup"
+            android:id="@+id/customer_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-android:textSize="16dp"
+
             android:layout_marginTop="40dp"
-            android:onClick="Signup"
+            android:onClick="Login"
+            android:textSize="16dp"
 
-            android:text="Signup"
+            android:text="Login"
             android:textColor="@color/color1"
-            app:backgroundTint="@color/color4">
+            app:backgroundTint="@color/color4" />
 
-        </Button>
     <TextView
         android:id="@+id/textViewNotRegistered"
         android:layout_width="wrap_content"
@@ -71,19 +71,20 @@ android:textSize="16dp"
 
    />
 
-    <Button
-        android:id="@+id/customer_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        <Button
+            android:id="@+id/buttonSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="16dp"
+            android:layout_marginTop="25dp"
+            android:onClick="Signup"
 
-        android:onClick="Login"
-        android:textSize="16dp"
-        android:layout_marginTop="25dp"
-        android:text="Login"
-        android:textColor="@color/color1"
-        app:backgroundTint="@color/color4" />
+            android:text="Signup"
+            android:textColor="@color/color1"
+            app:backgroundTint="@color/color4">
 
+        </Button>
 
 </LinearLayout>
 
