@@ -4,70 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".AfterLoginActivity">
 
 
-    <Button
-        android:id="@+id/buttonCurrentLine"
-        android:layout_width="160dp"
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="351dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="332dp"
-        android:onClick="CurrentLine"
-        android:text="Current Line"
-        app:backgroundTint="@color/colorPrimary" />
+        android:layout_marginBottom="307dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttonExit"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        <Button
+            android:id="@+id/buttonCurrentLine"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableTop="@drawable/ic_baseline_people"
+            android:onClick="CurrentLine"
+            android:text="Current Line"
+            app:backgroundTint="@color/colorPrimary" />
 
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="576dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="107dp"
-        android:onClick="Exit"
-        android:text="Exit"
-        app:backgroundTint="@color/colorPrimary" />
+        <Button
+            android:id="@+id/buttonExit"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:drawableTop="@drawable/ic_baseline_exit"
+            android:onClick="Exit"
+            android:text="Exit"
+            app:backgroundTint="@color/colorPrimary" />
+
+    </LinearLayout>
 
     <Button
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="466dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="217dp"
         android:onClick="logout"
         android:text="Logout" />
 </RelativeLayout>

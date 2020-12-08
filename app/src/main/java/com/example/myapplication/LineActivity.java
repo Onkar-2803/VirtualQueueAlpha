@@ -53,7 +53,7 @@ public class LineActivity extends AppCompatActivity {
                     category=dataSnapshot.child("category").getValue().toString();
                     // name=dataSnapshot.child("name").getValue().toString();
 
-                    Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
                     DatabaseReference reference3= FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
                     reference3.addValueEventListener(new ValueEventListener() {
                         @Override

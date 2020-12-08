@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CurrentLineActivity extends AppCompatActivity {
     String shopname,category,name;
 TextView number;
+TextView phone_num;
     FirebaseAuth fAuth;
     FirebaseUser user;
     @Override
@@ -29,6 +30,7 @@ TextView number;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_line);
         number = (TextView) findViewById(R.id.textViewCurrentCouponNumber);
+        phone_num=(TextView)findViewById(R.id.phone_number);
         fAuth= FirebaseAuth.getInstance();
         user=fAuth.getCurrentUser();
         DatabaseReference reference1= FirebaseDatabase.getInstance().getReference().child("Vendor").child(user.getUid());
@@ -41,7 +43,7 @@ TextView number;
                 category=dataSnapshot.child("category").getValue().toString();
                 // name=dataSnapshot.child("name").getValue().toString();
 
-                Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
                 DatabaseReference reference3= FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
                 reference3.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -65,6 +67,26 @@ TextView number;
                            //         Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
                                     String txt=info1.getNumber()+": "+dataSnapshot.getValue();
                                     number.setText(txt);
+
+
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                            Query query1 = namereference.getRef().child(info1.getUid()).child("phone");
+                            //            Toast.makeText(getApplicationContext(),query.toString().toString(),Toast.LENGTH_SHORT).show();
+                            query1.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    //         Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
+                                    phone_num.setText("Phone:-" + dataSnapshot.getValue().toString());
+
+
                                 }
 
                                 @Override
@@ -135,7 +157,7 @@ TextView number;
                 category=dataSnapshot.child("category").getValue().toString();
                 // name=dataSnapshot.child("name").getValue().toString();
 
-                Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getApplicationContext(), shopname+": -"+category, Toast.LENGTH_LONG).show();
 
 
 

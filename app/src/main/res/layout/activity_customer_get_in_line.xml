@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".CustomerGetInLineActivity">
     <LinearLayout
@@ -67,10 +73,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
+        android:drawableRight="@drawable/ic_baseline_people"
         android:text="Current Line On going "
          />
 
     <Button
+        android:drawableRight="@drawable/ic_baseline_exit"
         android:id="@+id/buttonExitLine"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -81,6 +89,7 @@
          />
 
     <Button
+        android:drawableRight="@drawable/ic_baseline_person_add_alt_1_24"
         android:id="@+id/buttonGetInLine"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -90,6 +99,16 @@
         android:text="Get In Line" />
 
     <Button
+        android:drawableRight="@drawable/ic_baseline_location_on_24"
+        android:id="@+id/mapsgoogle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="GetPath"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"/>
+
+    <Button
+        android:drawableRight="@drawable/ic_baseline_arrow_back_24"
         android:id="@+id/buttonBack"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -98,12 +117,8 @@
         android:onClick="Back"
         android:text="Back"
          />
-    <Button
-        android:id="@+id/mapsgoogle"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="GetPath"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"/>
+
 
 </LinearLayout>
+
+</ScrollView>

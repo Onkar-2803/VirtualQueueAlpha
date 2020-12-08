@@ -239,7 +239,7 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
     }
 
     public void ExitLine(View view) {
-
+        /*
         FirebaseAuth fAuth;
         FirebaseUser user;
         fAuth= FirebaseAuth.getInstance();
@@ -261,6 +261,8 @@ public class CustomerGetInLineActivity extends AppCompatActivity {
 
             }
         });
+        
+         */
 
     }
 
