@@ -19,6 +19,7 @@
         android:textColor="@color/color1"
         android:backgroundTint="@color/color4"
         android:text="Vendor"
+        android:drawableTop="@drawable/ic_baseline_home_work_24"
          />
 
     <Button
@@ -35,5 +36,6 @@
         android:onClick="Customer"
         android:textColor="@color/color1"
         android:backgroundTint="@color/color4"
-        android:text="Customer" />
+        android:text="Customer"
+        android:drawableTop="@drawable/ic_baseline_customer"/>
 </RelativeLayout>

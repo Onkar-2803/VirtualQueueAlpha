@@ -14,6 +14,7 @@
     android:background="@color/color3">
 
     <EditText
+        android:textColor="@color/color1"
         android:id="@+id/email_xml1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
         android:layout_marginTop="25dp"
         android:layout_gravity="center"
         android:ems="10"
+        android:textColor="@color/color1"
         android:hint="Password"
         android:inputType="textPassword" />
 

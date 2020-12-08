@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorSignupActivity">
+    tools:context=".VendorSignupActivity"
+    android:background="@color/color3">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="@color/color3">
 
         <EditText
             android:id="@+id/category_xml"
@@ -17,17 +20,23 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
-            android:hint="Category" />
+            android:hint="Category"
+            android:layout_margin="15dp"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"/>
 
         <EditText
             android:id="@+id/email_xml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:ems="10"
             android:hint="Email"
-
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -36,9 +45,12 @@
             android:layout_height="wrap_content"
 
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:ems="10"
             android:hint="Shop Name"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"
             android:inputType="textPersonName" />
 
         <EditText
@@ -46,8 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:ems="10"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"
             android:hint="Address"
             android:inputType="textMultiLine" />
 
@@ -57,8 +72,11 @@
             android:layout_height="wrap_content"
 
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:ems="10"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"
             android:hint="Postal Code"
             android:inputType="textPostalAddress" />
 
@@ -68,10 +86,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
+            android:backgroundTint="@color/color1"
             android:ems="10"
-
             android:hint="Phone"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1" />
 
         <EditText
             android:id="@+id/password_xml"
@@ -79,16 +99,13 @@
             android:layout_height="wrap_content"
 
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:ems="10"
             android:hint="Password"
+            android:textColor="@color/color1"
+            android:textColorHint="@color/color1"
+            android:backgroundTint="@color/color1"
             android:inputType="textPassword" />
-
-        <ProgressBar
-            android:id="@+id/progress_circular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
 
         <Button
             android:id="@+id/button_xml"
@@ -98,8 +115,8 @@
             android:layout_margin="30dp"
             android:onClick="Signup"
             android:text="Register"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/teal_700" />
+            android:textColor="@color/color1"
+            app:backgroundTint="@color/color4" />
 
     </LinearLayout>
 </ScrollView>

@@ -28,7 +28,59 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color4"
+                android:backgroundTint="@color/color3"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textViewShop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:text="List of Available Shops"
+                    android:textColor="@color/color1"
+                    android:textSize="20sp" />
+
+                <ListView
+                    android:id="@+id/listView_xml"
+                    android:layout_width="294dp"
+                    android:layout_height="369dp"
+                    android:layout_gravity="center"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="20dp"
+                    android:text="SELECT SHOP FROM ABOVE"
+                    android:textColor="@color/color1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/buttonGoBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="60dp"
+                    android:backgroundTint="@color/color4"
+                    android:onClick="Back"
+                    android:padding="10dp"
+                    android:text="Back"
+                    android:textColor="@color/color1" />
+
+
+            </LinearLayout>
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -43,55 +95,4 @@
         app:menu="@menu/drawer_menu" />
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:backgroundTint="@color/color3"
-        android:background="@color/color4">
-
-
-        <TextView
-            android:textColor="@color/color1"
-            android:id="@+id/textViewShop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:text="List of Available Shops"
-            android:textSize="20sp" />
-
-        <ListView
-            android:id="@+id/listView_xml"
-            android:layout_width="294dp"
-            android:layout_height="369dp"
-            android:layout_gravity="center"
-            android:padding="5dp" />
-
-        <TextView
-            android:textColor="@color/color1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:text="SELECT SHOP FROM ABOVE"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/buttonGoBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="60dp"
-            android:onClick="Back"
-            android:padding="10dp"
-            android:textColor="@color/color1"
-            android:backgroundTint="@color/color4"
-            android:text="Back" />
-
-
-
-    </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
