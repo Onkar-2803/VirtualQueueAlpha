@@ -116,7 +116,7 @@ TextView phone_num;
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     //         Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
                                     phone_num.setText("Phone:-" + dataSnapshot.getValue().toString());
-
+                                    setCurrentParticipants();
 
                                 }
 
@@ -171,7 +171,23 @@ TextView phone_num;
 
     }
 
+    private void setCurrentParticipants() {
+        DatabaseReference reference4= FirebaseDatabase.getInstance().getReference().child("Queues").child(category).child(shopname);
+        reference4.addListenerForSingleValueEvent(new ValueEventListener() { //ref will be your desired path where you want to count children
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {   // Check for data snapshot has some value
+                    // check for counts of data snapshot children
+                    currentnumber.setText("Total Number of Participants: "+String.valueOf(dataSnapshot.getChildrenCount()));
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
     public void NextNumber(View view)
     {
 

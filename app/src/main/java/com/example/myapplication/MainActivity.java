@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,30 @@ public class MainActivity extends AppCompatActivity {
         /*Check  Whether Current User logged in through Customer or vendor*/
         if (fAuth.getCurrentUser() != null) {
             reference = FirebaseDatabase.getInstance().getReference().child("Customers");
+            reference.child(fAuth.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists())
+                    {
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), ShopCategories.class));
+                    }
+                    else
+                    {
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), AfterLoginActivity.class));
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+        // Query applesQuery = reference.orderByKey().equalTo(fAuth.getUid());
+            /*
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -51,8 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-
-        }
+            */
     }
 
     /* Onclick for new vendors*/
