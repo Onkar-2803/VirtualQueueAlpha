@@ -299,11 +299,19 @@ boolean flag=true;
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                if (dataSnapshot.getValue() != null) {
+                for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
                     appleSnapshot.getRef().removeValue();
                     Toast.makeText(CustomerGetInLineActivity.this, "You Have Exited The Queue", Toast.LENGTH_SHORT).show();
                     setCurrentParticipants();
                 }
+            }
+
+            else
+            {
+                Toast.makeText(getApplicationContext(), "Please Get in Queue First", Toast.LENGTH_LONG).show();
+
+            }
             }
 
             @Override

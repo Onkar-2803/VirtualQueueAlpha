@@ -96,11 +96,10 @@ TextView phone_num;
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                            //         Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
-                                    String txt=info1.getNumber()+": "+dataSnapshot.getValue();
-                                    number.setText(txt);
-
-
-
+                                    if(dataSnapshot.getValue()!=null) {
+                                        String txt = info1.getNumber() + ": " + dataSnapshot.getValue();
+                                        number.setText(txt);
+                                    }
                                 }
 
                                 @Override
@@ -115,8 +114,10 @@ TextView phone_num;
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     //         Toast.makeText(getApplicationContext(),dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
-                                    phone_num.setText("Phone:-" + dataSnapshot.getValue().toString());
-                                    setCurrentParticipants();
+                                    if(dataSnapshot.getValue()!=null) {
+                                        phone_num.setText("Phone:-" + dataSnapshot.getValue().toString());
+                                        setCurrentParticipants();
+                                    }
 
                                 }
 
@@ -210,25 +211,30 @@ TextView phone_num;
 
                         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                         Query applesQuery = ref.child("Queues").child(category).child(shopname).orderByKey().limitToFirst(1);
-
-                        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                                    appleSnapshot.getRef().removeValue();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                        });
-
-
-
+             //   Toast.makeText(getApplicationContext(),applesQuery.toString(),Toast.LENGTH_LONG).show();
+    applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            if (dataSnapshot.getValue() != null) {
+                for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                        appleSnapshot.getRef().removeValue();
+                }
+            }
+            else
+            {
+                Toast.makeText(getApplicationContext(), "The Queue is Empty", Toast.LENGTH_LONG).show();
 
             }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    });
+
+
+}
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
