@@ -13,23 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".QueueDataDisplay"></activity>
-        <activity android:name=".CustomerVerifyPhoneNumber"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".QueueDataDisplay" />
+        <activity android:name=".CustomerVerifyPhoneNumber" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".ShopCategories" />
         <activity
             android:name=".CustomerLoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".VendorLoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CustomerGetInLineActivity" />
         <activity
             android:name=".ShopListActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CustomerSignupActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".EditInfoActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".LineActivity" />
@@ -37,7 +38,7 @@
         <activity android:name=".AfterLoginActivity" />
         <activity
             android:name=".VendorSignupActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

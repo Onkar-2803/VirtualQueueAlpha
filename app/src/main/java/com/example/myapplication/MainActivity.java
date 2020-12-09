@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     DatabaseReference reference;
-    boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,20 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }
-        // Query applesQuery = reference.orderByKey().equalTo(fAuth.getUid());
+        else
+        {
+            finish();
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        }
+
+    }
+
+    /* Onclick for new vendors*/
+
+
+}
+
+// Query applesQuery = reference.orderByKey().equalTo(fAuth.getUid());
             /*
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -77,19 +89,3 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             */
-    }
-
-    /* Onclick for new vendors*/
-    public void Vendor(View view) {
-        Intent intent = new Intent(this, VendorLoginActivity.class);
-        startActivity(intent);
-    }
-
-    /*OnClick for new Customers*/
-
-    public void Customer(View view) {
-        Intent intent = new Intent(this, CustomerLoginActivity.class);
-        startActivity(intent);
-    }
-
-}
