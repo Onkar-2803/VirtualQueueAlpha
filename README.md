@@ -7,7 +7,7 @@ For restaurants and cafes, where it tends to be very packed, there is a high ris
 
 
 Survey: 
-A small survey was conducted by us which included nearby shopkeepers as vendors and our relatives and friends as customers who gave us an idea about the situation during the pandemic and the inconvenience caused to them. Customers had to wait in long queues by maintaining social distance which usually consumed their lot of time and also exposed them to other people which made them more prone to get COVID-19.
+A small survey was conducted by us which included nearby shopkeepers as vendors and our relatives and friends as customers who gave us an idea about the situation during the pandemic and the inconvenience caused to them. Customers had to wait in long queues by maintaining social distance which usually consumed their lot of time and also exposed them to other people which made them more prone to be infectedd by COVID-19.
 
 
 Our Solution:
